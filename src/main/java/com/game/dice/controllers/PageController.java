@@ -5,6 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+<<<<<<< HEAD
+=======
+import org.springframework.web.servlet.ModelAndView;
+>>>>>>> origin/master
 import  com.game.dice.repositories.UserRepository;
 import  com.game.dice.models.User;
 
@@ -20,7 +24,11 @@ public abstract class PageController {
     public String showUserList(Model model) {
         List<User> users = userRepository.findAll();
         model.addAttribute("users", users);
+<<<<<<< HEAD
         return "users";
+=======
+        return "user-list";
+>>>>>>> origin/master
     }
 
 
