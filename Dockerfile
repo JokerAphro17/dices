@@ -1,8 +1,15 @@
-FROM  openjdk:17-jdk-alpine
+
+FROM  ubuntu:22.04
 LABEL authors="JokerAphro"
 
 
+
 # Install dependencies
+RUN apt-get update && \
+    apt-get install -y openjdk-17-jdk && \
+    apt-get install -y git && \
+    apt-get install -y maven && \
+    rm -rf /var/lib/apt/lists/
 # Installe MySQL Server
 RUN apt-get update && \
     apt-get install -y mysql-server && \
