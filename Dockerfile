@@ -17,8 +17,10 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/
 
 # Compile the project
+COPY pom.xml /app/
+WORKDIR /app
+RUN mvn clean install
 
-Run mvn clean install
 
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
