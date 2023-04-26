@@ -5,6 +5,9 @@ LABEL authors="JokerAphro"
 
 
 # Install dependencies
+RUN pwd && ls
+
+
 RUN apt-get update && \
     apt-get install -y openjdk-17-jdk && \
     apt-get install -y git && \
