@@ -24,6 +24,7 @@ RUN mvn clean install
 
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
+RUN pwd && ls -l
 
 # Ajoutez les instructions suivantes pour configurer MySQL et créer une base de données
 RUN service mysql start && \
@@ -32,6 +33,7 @@ RUN service mysql start && \
     mysql -u root -e "GRANT ALL ON dices.* TO 'gamer'@'%'" && \
     mysql -u root -e "FLUSH PRIVILEGES" && \
     service mysql stop \
+
 
 
 COPY application.properties /app/config/
