@@ -38,6 +38,4 @@ public class UserController extends  BaseController{
             return sendInfo("User deleted successfully", HttpStatus.OK);
     }
 
-
-
 }
