@@ -5,19 +5,17 @@ LABEL authors="JokerAphro"
 
 
 # Install dependencies
-RUN pwd && ls
+RUN pwd
 
 
 RUN apt-get update && \
     apt-get install -y openjdk-17-jdk && \
     apt-get install -y git && \
     apt-get install -y maven && \
+    apt-get install -y mysql-server && \
     rm -rf /var/lib/apt/lists/
 # Installe MySQL Server
-RUN apt-get update && \
-    apt-get install -y mysql-server && \
-    apt-get install -y maven && \
-    rm -rf /var/lib/apt/lists/
+
 
 # Compile the project
 COPY pom.xml /app/
@@ -36,7 +34,6 @@ RUN service mysql start && \
     mysql -u root -e "GRANT ALL ON dices.* TO 'gamer'@'%'" && \
     mysql -u root -e "FLUSH PRIVILEGES" && \
     service mysql stop \
-
 
 
 COPY application.properties /app/config/
